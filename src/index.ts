@@ -18,10 +18,5 @@ const products = [
     new Date(2024, 3, 10)
   ),
 ];
-setProductDisplay(products[1], false);
-
+products[1].setDisplay(false);
 console.log(products);
-
-function setProductDisplay(product: Product, isShow: boolean): void {
-  product.isShow = isShow;
-}
