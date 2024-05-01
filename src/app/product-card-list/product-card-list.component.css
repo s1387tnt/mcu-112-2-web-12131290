@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+.container {
+  display: flex;
+  font-display: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  flex-basis: calc(20% - 40px);
+}
