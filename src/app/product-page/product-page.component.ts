@@ -1,10 +1,10 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subject, startWith, switchMap } from 'rxjs';
 import { Product } from '../model/product';
 import { ProductCardListComponent } from '../product-card-list/product-card-list.component';
-import { Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
-import { Subject, startWith, switchMap } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-product-page',
@@ -22,7 +22,7 @@ export class ProductPageComponent {
 
   readonly products$ = this.refresh$.pipe(
     startWith(undefined),
-    switchMap(() => this.productService.getList())
+    switchMap(() => this.productService.getList('書籍B', 1, 5))
   );
 
   onAdd(): void {
